@@ -3,6 +3,16 @@ var app = express();
 
 app.set('port', process.env.PORT || 8080);
 
+app.get('/', function(req, res) {
+	res.type('text/plain');
+	res.send('Meadowlark Travel');
+});
+
+app.get('/about', function(req, res) {
+	res.type('text/plain');
+	res.send('About Meadowlark Travel');
+});
+
 app.use(function(req, res) {
 	res.type('text/plain');
 	res.status(404);
