@@ -27,6 +27,13 @@ app.get('/about', function(req, res) {
 	});
 });
 
+app.get('/headers', function(req, res) {
+	res.set('Content-Type', 'text/plain');
+	var s = '';
+	for(var name in req.headers) s += name + ': ' + req.headers[name] + '\n';
+	res.send(s);
+});
+
 app.use(function(req, res, next) {
 	res.status(404);
 	res.render('404');
